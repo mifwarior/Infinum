@@ -1,11 +1,11 @@
-module.exports = options => {
-  return {
+module.exports = {
+
     mode: 'development',
     entry: './src/index.js',
     output: {
       filename: './bundle.js',
     },
-   devtool: 'inline-source-map',
+   //devtool: 'inline-source-map',
     module: {
       rules: [
         {
@@ -14,15 +14,13 @@ module.exports = options => {
           use: [
             {
               loader: 'babel-loader',
-              options: {
-                cacheDirectory: true,
-                presets: ['@babel/preset-env', "@babel/preset-react"],
-                plugins: ['@babel/plugin-transform-runtime']
-              }
             },
           ],
         },
+        {
+          test: /\.css$/,
+          use: [ 'style-loader', 'css-loader' ],
+        }
       ],
     },
-  }
-}
+};
