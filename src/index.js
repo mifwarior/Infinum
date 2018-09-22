@@ -18,5 +18,5 @@ class App extends Component {
   }
 }
 
-const root = document.querySelector('#root')
+const root = document.getElementById('root');
 ReactDOM.render(<App />, root)
